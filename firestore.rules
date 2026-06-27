@@ -8,8 +8,12 @@ service cloud.firestore {
 
     match /appointments/{document} {
       allow create: if true;
-      allow read: if isAdmin() || (request.auth != null && (resource.data.userId == request.auth.uid || resource.data.email == request.auth.token.email));
-      allow update, delete: if isAdmin() || (request.auth != null && resource.data.userId == request.auth.uid);
+      // DEMO MODE: Allow reading all appointments without authentication
+      // For production, restore: if isAdmin() || (request.auth != null && (resource.data.userId == request.auth.uid || resource.data.email == request.auth.token.email));
+      allow read: if true;
+      // DEMO MODE: Allow updating/deleting all appointments without authentication
+      // For production, restore: if isAdmin() || (request.auth != null && resource.data.userId == request.auth.uid);
+      allow update, delete: if true;
     }
 
     match /users/{userId} {
@@ -21,7 +25,9 @@ service cloud.firestore {
 
     match /contactMessages/{document} {
       allow create: if true;
-      allow read, update, delete: if isAdmin();
+      // DEMO MODE: Allow reading/updating messages without authentication
+      // For production, restore: if isAdmin();
+      allow read, update, delete: if true;
     }
 
     match /{document=**} {
