@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: BRAND_CONFIG.seo.description,
   keywords: BRAND_CONFIG.seo.keywords,
   authors: [{ name: BRAND_CONFIG.clinicName }],
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export const viewport: Viewport = {

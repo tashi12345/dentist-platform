@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Smile, Menu, X, Phone, UserCircle } from "lucide-react";
+import { Menu, X, Phone, UserCircle } from "lucide-react";
+import Logo from "./Logo";
 import styles from "./Navbar.module.css";
 import { useAuth } from "@/lib/AuthContext";
 import { BRAND_CONFIG } from "@/data/config";
@@ -24,7 +25,7 @@ const Navbar = () => {
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
-                    <Smile size={32} className={styles.logoIcon} />
+                    <Logo size={40} className={styles.logoIcon} />
                     <div className={styles.logoText}>
                         <span className={styles.brandName}>{BRAND_CONFIG.clinicName.toUpperCase()}</span>
                         <span className={styles.brandSub}>{BRAND_CONFIG.tagline.toUpperCase()}</span>

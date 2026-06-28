@@ -92,6 +92,127 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section style={{ padding: '100px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 style={{ fontSize: 'clamp(32px, 5vw, 42px)', marginBottom: '16px', textAlign: 'center', fontWeight: 800 }}>
+              What Our <span className="gradient-text">Patients Say</span>
+            </h2>
+            <p style={{ color: 'var(--text-muted)', textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px', fontSize: '18px' }}>
+              Real experiences from our valued patients
+            </p>
+          </motion.div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '32px'
+          }}>
+            {[
+              {
+                name: "Ayesha Khan",
+                treatment: "Teeth Whitening",
+                text: "Amazing experience! The staff was so professional and caring. My teeth look brilliant now. Highly recommend!",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
+              },
+              {
+                name: "Ahmed Hassan",
+                treatment: "Root Canal",
+                text: "I was nervous about the root canal but Dr. made it completely painless. Great clinic with modern equipment.",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+              },
+              {
+                name: "Fatima Malik",
+                treatment: "Dental Checkup",
+                text: "Very clean facility and friendly staff. The dentist explained everything clearly. Will definitely come back!",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop"
+              }
+            ].map((testimonial, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="premium-card"
+                style={{ padding: '32px' }}
+              >
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', alignItems: 'center' }}>
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }}
+                  />
+                  <div>
+                    <h4 style={{ marginBottom: '4px', fontSize: '18px' }}>{testimonial.name}</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>{testimonial.treatment}</p>
+                  </div>
+                </div>
+                <div style={{ color: 'var(--primary)', marginBottom: '16px' }}>
+                  {"★".repeat(testimonial.rating)}
+                </div>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontStyle: 'italic' }}>
+                  "{testimonial.text}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section style={{ background: 'var(--surface)', padding: '100px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 42px)', marginBottom: '60px', textAlign: 'center', fontWeight: 800 }}>
+            Our <span className="gradient-text">Clinic Gallery</span>
+          </h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px'
+          }}>
+            {[
+              "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1609107683888-1c6c40fbd2c7?q=80&w=800&auto=format&fit=crop"
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                style={{
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  height: '280px',
+                  position: 'relative',
+                  cursor: 'pointer'
+                }}
+                className="premium-card"
+              >
+                <img
+                  src={img}
+                  alt={`Clinic ${i + 1}`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer style={{ padding: '80px 24px 40px', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px' }}>

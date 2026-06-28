@@ -14,11 +14,12 @@ export const BRAND_CONFIG = {
   facebook: "https://facebook.com/goldencrowndental",
   instagram: "@goldencrowndental",
 
-  // Theme Colors (CSS variable overrides)
+  // Theme Colors (Light Green & Black)
   colors: {
-    primary: "#FFD700",      // Golden Crown
-    background: "#0a1628",   // Deep Blue
-    surface: "#1a2942"       // Lighter Blue
+    primary: "#10b981",      // Emerald Green
+    primaryLight: "#34d399", // Light Green
+    background: "#0a0a0a",   // Deep Black
+    surface: "#111111"       // Slightly lighter black
   },
 
   // Operating Hours
